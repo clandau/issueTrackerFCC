@@ -6,36 +6,42 @@
 *
 */
 
-'use strict';
+'use strict'
 
-var expect = require('chai').expect;
-var MongoClient = require('mongodb');
-var ObjectId = require('mongodb').ObjectID;
+const expect = require('chai').expect
+const MongoClient = require('mongodb'), assert = require('assert')
+const ObjectId = require('mongodb').ObjectID
 
-const CONNECTION_STRING = process.env.DB; //MongoClient.connect(CONNECTION_STRING, function(err, db) {});
+const dotenv = require('dotenv').config()
+
+const CONNECTION_STRING = process.env.DB
+
+MongoClient.connect(CONNECTION_STRING, (err, db) => {
+  if(err) console.log('cannot connect to database. error: ', err)
+  console.log('connected successfully to the server')
+})
 
 module.exports = function (app) {
 
   app.route('/api/issues/:project')
-  
     .get(function (req, res){
-      var project = req.params.project;
+      let project = req.params.project;
       
     })
     
     .post(function (req, res){
-      var project = req.params.project;
+      let project = req.params.project;
       
     })
     
     .put(function (req, res){
-      var project = req.params.project;
+      let project = req.params.project;
       
     })
     
     .delete(function (req, res){
-      var project = req.params.project;
+      let project = req.params.project;
       
-    });
+    })
     
 };
