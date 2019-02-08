@@ -27,13 +27,13 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.route('/:project/')
   .get(function (req, res) {
     res.sendFile(process.cwd() + '/views/issue.html')
-  });
+  })
 
 //Index page (static HTML)
 app.route('/')
   .get(function (req, res) {
     res.sendFile(process.cwd() + '/views/index.html')
-  });
+  })
 
 //For FCC testing purposes
 fccTestingRoutes(app)
@@ -46,7 +46,7 @@ app.use(function(req, res, next) {
   res.status(404)
     .type('text')
     .send('Not Found')
-});
+})
 
 //Start our server and tests!
 app.listen(process.env.PORT || 3000, function () {
@@ -63,6 +63,6 @@ app.listen(process.env.PORT || 3000, function () {
       }
     }, 3500)
   }
-});
+})
 
 module.exports = app; //for testing
